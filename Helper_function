@@ -1,0 +1,7 @@
+def _save_images(self, epoch):
+        generated = self._predict_noise(25)
+        generated = 0.5 * generated + 0.5
+        self._image_helper.save_image(generated, epoch, "generated/")
+def _predict_noise(self, size):
+        noise = np.random.normal(0, 1, (size, self.generator_input_dim))
+        return self.generator_model.predict(noise)
